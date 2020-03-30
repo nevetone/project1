@@ -1,0 +1,323 @@
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #330E0F;
+    font-size: 10px;
+}
+/* HEADER */
+div#views{
+    height: 100vh;
+}
+header{
+    height: 50vh;
+    width: 100vw;
+    overflow: hidden;
+    position: fixed;
+    text-align: center;
+}
+header img.logo1{
+    position: fixed;
+    transform: translateX(-50%);
+    left:30%;
+    top:-5%;
+    z-index: 3;
+    width: 1250px;
+    height: 100vh;
+}
+header img.logo2{
+    position: fixed;
+    transform: translateX(-50%);
+    left:50%;
+    top:-5%;
+    z-index: 3;
+    width: 2000px;
+    height: 100vh;
+    opacity: 0.8;
+}
+header img.logo3{
+    position: fixed;
+    transform: translateX(-50%);
+    left:50%;
+    top:25%;
+    z-index: 5;
+    padding: 2px;
+    width: 100px;
+    height: 100px;
+    opacity: 0.8;
+    border-radius: 50%;
+    box-shadow: 0px 0px 64px 10px rgba(255,255,255,1);
+}
+header h1{
+    position: fixed;
+    top:40%;
+    left:50%;
+    transform: translateX(-50%);
+    color:white;
+    z-index: 5;
+    font-family: 'Righteous', cursive;
+    font-size: 30px;
+}
+/* navigation */
+.fa-bars{
+    
+    font-size: 4rem;
+}
+#h-menu{
+    position: fixed;
+    overflow-y: scroll;
+    background: rgb(255, 255, 255);
+    z-index: 8;
+    top:0;
+    right: -80vw;
+    width: 70vw;
+    height: 100%;
+    max-height: 100vh;
+    translate: 1s linear;
+    text-align: center;
+    box-shadow: 0px 0px 64px 10px rgb(0, 0, 0);
+}
+#show-menu{
+    z-index: 9;
+    color:white;
+    position: fixed;
+    z-index: 9;
+    text-align: center;
+    right:10%;
+    top:5%;
+}
+#hide-menu{
+    font-size: 3rem;
+    z-index: 9;
+    color:rgb(0, 0, 0);
+    position: fixed;
+    text-align: center;
+    right:2%;
+    top:2%;
+    display: none;
+}
+.menu-text{
+    text-align: center;
+    text-decoration: none;
+}
+.menu-text ul{
+    list-style: none;
+}
+.hidden{
+    display: none;
+}
+/* menu przyciski */
+.ul-nav{
+    width: 90%;
+    left:50%;
+    transform: translateX(-50%);
+    display: block;
+    position: relative;
+    padding-bottom: 5px;
+    transition: 1s linear;
+}
+.li-nav{
+    height: 7vh;
+    transition: 1s linear;
+    border-top: 2px solid red;
+}
+.li-nav-main{
+    height: 7vh;
+    transition: 1s linear;
+    border-top: 2px solid red;
+}
+.li-nav-hidden{
+    display: none;
+}
+.nav-first{
+    border:none;
+    background-color: rgb(252, 112, 112);
+    box-shadow:0px 5px 5px black;
+}
+.li-last{
+    border-bottom: 2px solid red;
+}
+.li-active{
+    background-color: #330E0F !important;
+}
+.a-nav{
+    position: relative;
+    text-align: center;
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    text-align: center;
+    color: black;
+}
+.a-nav-main{
+    position: relative;
+    text-align: center;
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    text-align: center;
+    color: black;
+}
+.a-nav-main:hover{
+    text-decoration: none;
+    color:black;
+}
+.p-nav{
+    font-family: 'Righteous', cursive;
+    position: relative;
+    font-size: 1.5rem;
+    top:50%;
+    transform: translateY(-50%);
+}
+.a-nav:hover{
+    text-decoration: none;
+    transition: 0.3s linear;
+    background-color: #330E0F;
+    color:white;
+    
+}
+/* >>>>>>>> Scroll down button <<<<<<<<<<< */
+#s-down .fa-chevron-down{
+    position: relative;
+    top:50%;
+    font-size: 3rem;
+    text-shadow: 0px -20px 0 black, 0 -40px 0 black;
+    animation: arrow 1.6s infinite linear;
+    position: relative;
+    height: 56px;
+    width: 56px;
+    color: black;
+    z-index: 6;
+}
+#s-down{
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    overflow: hidden;
+    border: 2px solid black;
+    position: relative;
+    top:250px;
+    height: 56px;
+    width: 56px;
+    z-index: 6;
+    left:50%;
+    transform: translateX(-50%);
+    border-radius: 50%;  
+}
+#s-down:hover > .fa-chevron-down{
+    cursor: pointer;
+    color:#330E0F;
+    text-shadow: 0px -20px 0 #330E0F, 0 -40px 0 #330E0F;
+    border-color: rgba(0, 0, 0, 0.2);
+    transition: 1s ease;
+}
+#s-down:hover{
+    box-shadow: 0px 0px 64px 10px rgb(0, 0, 0);
+    transition: 2s ease;
+}
+/* text area */
+#a-first{
+    display: block;
+    position: relative;
+    top:50vh;
+    z-index: 4;
+    padding-bottom: 5%;
+    height: auto;
+    background-color: white;
+    clip-path: polygon(100% 0%, -250% 100%, 250% 100%);
+}
+#a-second{
+    text-align: center;
+    position: relative;
+    display: block;
+    z-index: 4;
+    height: auto;
+    background-color: white;
+}
+.a-first-text{
+    position: relative;
+    z-index: 7;
+    margin-top:50vh;
+    width: 90vw;
+    left:5%;
+}
+.a-second-text{
+    position: relative;
+    z-index: 7;
+    margin-top:50vh;
+    width: 90vw;
+    left:5%;
+}
+/* text styles */
+h1.newsh1{
+    font-family: 'Righteous', cursive;
+    padding-top: 10%;
+    border-top: 2px solid red;
+    position: relative;
+    font-size: 2rem;
+    padding-bottom: 10%;
+    border-bottom: 2px red solid;
+    text-align: center;
+}
+h2.newsh2{
+    font-family: 'Righteous', cursive;
+    position: relative;
+    font-size: 2rem;
+    text-align:center;
+}
+#newsblok{
+    padding: 0 5%;
+    margin-top:5%;
+    border: 1px solid darkred;
+    overflow: hidden;
+    position: relative;
+    width: 90vw;
+    background-color: rgb(104, 0, 0);
+}
+
+
+h3.newsh3{
+    font-family: 'Righteous', cursive;
+    position: relative;
+    text-align: center;
+    font-size: 1.5rem;
+}
+.newsimg{
+    position: relative;
+    width: 100%;
+    height: 20vh;
+}
+a.a-news{
+    font-family: 'Righteous', cursive;
+    display: block;
+    position: relative;
+    text-decoration: none;
+    color:rgb(255, 255, 255);
+    font-size: 2rem;
+}
+.text-white{
+    color:white !important;
+}
+.text-red{
+    color:red !important;
+}
+.text-black{
+    color:black !important;
+}
+/* animations */
+@keyframes arrow {
+    0%{
+        transform: translateY(-80px);
+    }
+    50%{
+        transform: translateY(0px)
+    }
+    100%{
+        transform: translateY(80px)
+    }
+}

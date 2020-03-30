@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+{% load static %}
+    <script src="{% static 'scripts/scripts.js' %}"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Righteous&display=swap&subset=latin-ext" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/styles.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Szkoły Lider w Lublinie</title>
+</head>
+<body>
+<div id="views">
+<header>
+<img class="logo1" src="{% static 'images/logo.png' %}" alt="Logo Lider" />
+<img class="logo3" src="{% static 'images/lider.jpg' %}" alt="Logo Lider" />
+<h1>Szkoły Lider w Lublinie</h1>
+<img class="logo2" src="{% static 'images/transparent.png' %}" alt="Logo Lider" />
+</header>
+<nav id="menu">
+<a id="show-menu" ><i class="fa fa-bars"></i></a>
+<a id="hide-menu" ><i class="fa fa-window-close text-black"></i></a>
+<script>
+$(document).ready(function(){
+    // przewijanie
+    $("#s-down").click(function (){
+        $('html, body').animate({
+            scrollTop: $(".a-first-text").offset().top
+        }, 1000);
+    });
+    // zmiana koloru przycisku menu 
+    $(window).scroll(function(){
+        var top = $(window).scrollTop();
+        var find_class = $.contains('.fa-bars', '.text-black');
+        var header = $("header").height();
+        if(top > header && find_class == false) { 
+        $('.fa-bars').addClass('text-black'); 
+        }
+        else {
+        $('.fa-bars').removeClass('text-black'); 
+        }
+    });
+    // pokazanie menu
+    $("#show-menu").click(function(){ 
+		$('#h-menu').show().animate({"right":"+=80vw"},200);
+		$("#hide-menu").show();
+		$("#show-menu").hide();
+	});
+	$("#hide-menu").click(function(){ 
+		$('#h-menu').animate({"right":"-=80vw"},200);
+		$("#hide-menu").hide(); 
+		$("#show-menu").show();
+	});	
+    // atrybut active dla wcisnietych w menu
+    $(".a-nav-main").click(function(){ 
+        var hasclass = $(this).hasClass('li-active');
+
+        if(hasclass == true){
+            $(this).removeClass('li-active');
+            $(this).removeClass('text-white');
+        }else{
+            $(this).addClass('li-active');
+            $(this).addClass('text-white');
+        };
+    });
+    // rozwijane menu
+    function do_find_class(first, do_times){
+            var find_class1 = [];
+            var k = 0;
+            var l = 0;
+            do{
+                l = k + first - 1;
+                find_class1.push($("#nav-first"+l.toString()).hasClass("li-nav-hidden"));
+                k ++;
+            }while( k <= do_times );
+            return find_class1;
+            };
+        function remove_or_add(first , do_times){
+            var i = 0;
+            var first_block = first - 1;
+            var find_class1 = do_find_class(first, do_times);
+            var times = do_times + first;
+                do{
+                    if(find_class1[i] == true){
+		             $('#nav-first'+first_block.toString()).removeClass('li-nav-hidden');
+                        i ++;
+                        first_block ++;
+                    }
+                    else {
+                        $('#nav-first'+first_block.toString()).addClass('li-nav-hidden');
+                        i ++;
+                        first_block ++;
+                    };
+            }while(i <= times);
+            };
+
+    $("#nav-add1").click(function(){ 
+        remove_or_add(1, 7);
+	});
+
+	$("#nav-add2").click(function(){ 
+        remove_or_add(21, 2);
+	});
+
+    $("#nav-add3").click(function(){ 
+        remove_or_add(31, 5);
+	});
+
+    $("#nav-add4").click(function(){ 
+        remove_or_add(41, 5);
+	});
+
+    $("#nav-add5").click(function(){ 
+        remove_or_add(51, 5);
+	});
+
+    $("#nav-add6").click(function(){ 
+        remove_or_add(61, 4);
+	});
+
+    $("#nav-add7").click(function(){ 
+        remove_or_add(71, 8);
+	});
+});
+</script>
+{% include  'nav.html' %}
+<div id="a-first">
+<p href="#" id="s-down">
+<i class="fa fa-chevron-down"></i>
+</p>
+<div class="a-first-text">
+<h1 class="newsh1">{{ nazwa_strony }}</h1>
+<h1 class="newsh1">
+{% for news in mainnews %}
+{{ news }} </br> 
+{% endfor %}
+</h1>
+</div>
+</div>
+<div id="a-second">
+<div class="a-second-text">
+{% block content %}   
+{% endblock %}
+</div>
+</div>
+<div id="fotter" class="fotter">
+<p class="fotter-text">
+Szkoły 'LIDER' w Lublinie
+</p>
+</div>
+</body>
+</html>
+

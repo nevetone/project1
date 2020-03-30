@@ -1,0 +1,60 @@
+{% extends 'data.html' %}
+{% block content %}
+{% load static %}
+{% for news1 in news %}
+{% if news1.glowny == True %}
+{% else %}
+<div id="newsblok">
+<h2 class="newsh2 text-white">
+ {{ news1.tytul }} 
+</h2>
+{% if news1.CzyMaZdjecie == True %}
+<img class="newsimg text-white" src="{{ news1.nazwaZdj.url }}" alt="{{ news1.autor }}" />
+{% endif %}
+<h3 class="newsh3 text-white">
+{{ news1.opis }} 
+</h3>
+</div>
+{% endif %}
+{% endfor %}
+<div id="text-block">
+<h2 class="h2text-block-area">
+<a class="link_box">
+<p class="link_box_text ">
+Dziennik Elektroniczny
+</p>
+</a></h2>
+</div><br />
+<div id="text-block">
+<h2 class="h2text-block-area">
+<a class="link_box">
+<p class="link_box_text text-red">
+ESPORT
+</p>
+</a></h2>
+</div><br />
+<div id="text-block">
+<h2 class="h2text-block-area">
+<a class="link_box">
+<p class="link_box_text">
+Nasi Absolwenci
+</p>
+</a></h2>
+</div><br />
+<div id="text-block">
+<h2 class="h2text-block-area">
+<a class="link_box">
+<p class="link_box_text">
+Partnerzy
+</p>
+</a></h2>
+</div><br />
+<div id="text-block">
+<h2 class="h2text-block-area">
+<a href="https://www.facebook.com/cusliderlublin" class="link_box">
+<p class="link_box_text">
+Facebook
+</p>
+</a></h2>
+</div><br />
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends 'data.html' %}
+{% block content %}
+{% load static %}
+{% for news in news1 %}
+{% if news.glowny == True %}
+{% else %}
+<div id="newsblok">
+<h2 class="newsh2 text-white">
+ {{ news.tytul }} 
+</h2>
+{% if news.CzyMaZdjecie == True %}
+<img class="newsimg text-white" src="{{ news.nazwaZdj.url }}" alt="{{ news.autor }}" />
+{% endif %}
+<h3 class="newsh3 text-white">
+{{ news.opis }} 
+</h3>
+</div>
+{% endif %}
+{% endfor %}
+<div id="text-block">
+<h2 class="h2text-block-area">
+<a href="/news" class="link_box">
+<p class="link_box_text ">
+Wszystkie Nowości >
+</p>
+</a></h2>
+</div><br />
+<div id="text-block">
+<h2 class="h2text-block-area">
+<a class="link_box">
+<p class="link_box_text ">
+Dziennik Elektroniczny
+</p>
+</a></h2>
+</div><br />
+<div id="text-block">
+<h2 class="h2text-block-area">
+<a class="link_box">
+<p class="link_box_text text-red">
+ESPORT
+</p>
+</a></h2>
+</div><br />
+<div id="text-block">
+<h2 class="h2text-block-area">
+<a class="link_box">
+<p class="link_box_text">
+Nasi Absolwenci
+</p>
+</a></h2>
+</div><br />
+<div id="text-block">
+<h2 class="h2text-block-area">
+<a class="link_box">
+<p class="link_box_text">
+Partnerzy
+</p>
+</a></h2>
+</div><br />
+<div id="text-block">
+<h2 class="h2text-block-area">
+<a class="link_box">
+<p class="link_box_text">
+Facebook
+</p>
+</a></h2>
+</div><br />
+<div id="text-block">
+<h2 class="h2text-block-area">
+Uczniowie pracują na kosmetykach:<br /><br />
+<img class="img_prod" src="{% static 'kosmetyki/KERASTASE.png' %}" alt="Kerastase" /><br />
+<img class="img_prod" src="{% static 'kosmetyki/MATRIX.png' %}" alt="Matrix" /><br />
+<img class="img_prod" src="{% static 'kosmetyki/PROXIMUS.png' %}" alt="Proximus" /><br />
+<img class="img_prod" src="{% static 'kosmetyki/LOREAL.png' %}" alt="Loreal" /></h2>
+</div><br />
+<div id="text-block">
+<h2 class="h2text-block-area">
+Współpracujemy z firmami:<br /><br />
+<img class="img_prod" src="{% static 'kosmetyki/PIANO.png' %}" alt="Piano" /><br />
+<img class="img_prod" src="{% static 'kosmetyki/UNIA.png' %}" alt="Unia" /><br />
+<img class="img_prod" src="{% static 'kosmetyki/Agit.png' %}" alt="Agit" /><br />
+<img class="img_prod" src="{% static 'kosmetyki/Grandhotel.png' %}" alt="GrandHotel" /></h2>
+</div><br />
+{% endblock %}
